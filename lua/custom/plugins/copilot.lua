@@ -1,3 +1,8 @@
 return {
-  'github/copilot.vim',
+  'zbirenbaum/copilot.lua',
+  Cmd = { 'Copilot' },
+  event = { 'InsertEnter' },
+  config = function()
+    require('copilot').setup {}
+  end,
 }
