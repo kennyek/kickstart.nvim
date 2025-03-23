@@ -318,7 +318,7 @@ require('lazy').setup({
       local servers = {
         clangd = {},
         gopls = {},
-        ts_ls = {},
+        vtsls = {},
         lua_ls = {
           settings = {
             Lua = {
@@ -379,6 +379,7 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        json = { 'biome', 'prettierd', 'prettier', stop_after_first = true },
         javascript = { 'biome', 'prettierd', 'prettier', stop_after_first = true },
         javascriptreact = { 'biome', 'prettierd', 'prettier', stop_after_first = true },
         typescript = { 'biome', 'prettierd', 'prettier', stop_after_first = true },
