@@ -4,7 +4,7 @@ return {
     opts = {
       projects = {
         '~/Dev/*/*',
-        '~/.config/nvim',
+        '~/.config/*',
       },
       picker = {
         type = 'telescope',
