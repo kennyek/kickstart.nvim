@@ -41,6 +41,8 @@ vim.opt.scrolloff = 10
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '<leader>gp', vim.diagnostic.goto_prev, { desc = 'Jump to the previous diagnostic' })
+vim.keymap.set('n', '<leader>gn', vim.diagnostic.goto_next, { desc = 'Jump to the next diagnostic' })
 
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
@@ -318,7 +320,14 @@ require('lazy').setup({
       local servers = {
         clangd = {},
         gopls = {},
-        vtsls = {},
+        vtsls = {
+          setup = {
+            on_attach = function(client)
+              client.server_capabilities.documentFormattingProvider = false
+              client.server_capabilities.documentRangeFormattingProvider = false
+            end,
+          },
+        },
         lua_ls = {
           settings = {
             Lua = {
