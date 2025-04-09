@@ -42,6 +42,8 @@ vim.opt.cursorline = true
 
 vim.opt.scrolloff = 10
 
+vim.opt.confirm = true
+
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 local function goto_next()
