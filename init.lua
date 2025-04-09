@@ -196,6 +196,21 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })
+
+      local function create_conventional_commit()
+        local actions = require 'telescope._extensions.conventional_commits.actions'
+        local picker = require 'telescope._extensions.conventional_commits.picker'
+        local themes = require 'telescope.themes'
+
+        local opts = {
+          action = actions.prompt,
+          include_body_and_footer = true,
+        }
+        opts = vim.tbl_extend('force', opts, themes['get_ivy']())
+        picker(opts)
+      end
+
+      vim.keymap.set('n', 'cc', create_conventional_commit, { desc = 'Create conventional commit' })
     end,
   },
 
