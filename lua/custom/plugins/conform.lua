@@ -29,11 +29,23 @@ return {
     end,
     formatters_by_ft = {
       lua = { 'stylua' },
-      json = { 'biome', 'prettierd', 'prettier', stop_after_first = true },
-      javascript = { 'biome', 'prettierd', 'prettier', stop_after_first = true },
-      javascriptreact = { 'biome', 'prettierd', 'prettier', stop_after_first = true },
-      typescript = { 'biome', 'prettierd', 'prettier', stop_after_first = true },
-      typescriptreact = { 'biome', 'prettierd', 'prettier', stop_after_first = true },
+      json = { 'biome_if_configured', 'prettierd', 'prettier', stop_after_first = true },
+      javascript = { 'biome_if_configured', 'prettierd', 'prettier', stop_after_first = true },
+      javascriptreact = { 'biome_if_configured', 'prettierd', 'prettier', stop_after_first = true },
+      typescript = { 'biome_if_configured', 'prettierd', 'prettier', stop_after_first = true },
+      typescriptreact = { 'biome_if_configured', 'prettierd', 'prettier', stop_after_first = true },
+    },
+    formatters = {
+      biome_if_configured = {
+        inherit = false,
+        command = 'biome',
+        args = { 'format', '--stdin-file-path', '$FILENAME' },
+        stdin = true,
+        condition = function(ctx)
+          local biome_config = vim.fs.find('biome.json', { upward = true, path = ctx.filename, type = 'file' })
+          return #biome_config > 0
+        end,
+      },
     },
   },
 }
