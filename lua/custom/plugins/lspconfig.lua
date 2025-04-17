@@ -3,6 +3,7 @@ return {
   dependencies = {
     -- Mason must be loaded before its dependents so we need to set it up here.
     { 'williamboman/mason.nvim', opts = {} },
+    'saghen/blink.cmp',
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
     { 'j-hui/fidget.nvim', opts = {} },
@@ -100,8 +101,7 @@ return {
       },
     }
 
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+    local capabilities = require('blink.cmp').get_lsp_capabilities()
 
     local servers = {
       clangd = {},
