@@ -1,5 +1,6 @@
 {
   "CopilotChat.nvim": { "branch": "main", "commit": "a89f5f1162b04a0962e5f4c3cdf248a81e7e53cb" },
+  "better-ts-errors.nvim": { "branch": "main", "commit": "d57a7794b271e1a0010d0328e5d3f18e20f1face" },
   "blink.cmp": { "branch": "main", "commit": "cb5e346d9e0efa7a3eee7fd4da0b690c48d2a98e" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "a8912b88ce488f411177fc8aed358b04dc246d7b" },
   "codecompanion.nvim": { "branch": "main", "commit": "071f738ac152690b5518612dfbd17e1249ad819a" },
