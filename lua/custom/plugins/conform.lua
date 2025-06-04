@@ -29,7 +29,8 @@ return {
     end,
     formatters_by_ft = {
       lua = { 'stylua' },
-      json = { 'biome_if_configured', 'prettierd', 'prettier', stop_after_first = true },
+      markdown = { 'prettierd', 'prettier', stop_after_first = true },
+      json = { 'biome_if_configured', 'prettierd', 'prettier', stop_after_first = false },
       javascript = { 'biome_if_configured', 'prettierd', 'prettier', stop_after_first = true },
       javascriptreact = { 'biome_if_configured', 'prettierd', 'prettier', stop_after_first = true },
       typescript = { 'biome_if_configured', 'prettierd', 'prettier', stop_after_first = true },
